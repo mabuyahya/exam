@@ -1,6 +1,7 @@
 #include "bigint.hpp"
 
 bigint::bigint(){
+    str = "0";
 }
 
 bigint::bigint(unsigned int num){
@@ -11,6 +12,10 @@ bigint::bigint(unsigned int num){
 
 bigint::bigint(const bigint &other){
     str = other.str;
+}
+
+bigint::bigint(std::string s){
+    str = s;
 }
 
 bigint::~bigint(){
@@ -26,14 +31,20 @@ std::string bigint::getBigInt() const{
 
 bigint bigint::operator+(const bigint &other){
     std::string result = add_two_strings(str,other.str);
+    return (bigint(result));
 }
+
+bigint &bigint::operator+=(const bigint &other){
+    str = add_two_strings(str, other.str);
+    return (*this);
+}
+
 
 std::string bigint::remove_leading_zeros(const std::string &str){
     size_t first_non_zero = str.find_first_not_of('0');
     if (first_non_zero == std::string::npos)
         return ("0");
     return (str.substr(first_non_zero));
-
 }
 
 std::string bigint::add_two_strings(const std::string &s1, const std::string &s2) {

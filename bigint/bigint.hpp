@@ -14,6 +14,7 @@ class bigint {
     public:
         bigint();
         bigint(unsigned int);
+        bigint(std::string s);
         bigint(const bigint &other);
         ~bigint();
         bigint &operator=(const bigint &other);
@@ -21,6 +22,7 @@ class bigint {
         std::string getBigInt() const;
 
         bigint operator+(const bigint &other);
+        bigint &operator+=(const bigint &other);
 
 
 };
