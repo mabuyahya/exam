@@ -9,8 +9,8 @@ class bigint {
     private:
         std::string str;
 
-        std::string add_two_strings(const std::string &s1, const std::string &s2);
-        std::string remove_leading_zeros(const std::string &s2);
+        std::string add_two_strings(const std::string &s1, const std::string &s2) const;
+        std::string remove_leading_zeros(const std::string &s2) const;
     public:
         bigint();
         bigint(unsigned int);
@@ -21,7 +21,7 @@ class bigint {
 
         std::string getBigInt() const;
 
-        bigint operator+(const bigint &other);
+        bigint operator+(const bigint &other) const ;
         bigint &operator+=(const bigint &other);
 
         bigint &operator++();
