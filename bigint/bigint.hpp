@@ -24,7 +24,25 @@ class bigint {
         bigint operator+(const bigint &other);
         bigint &operator+=(const bigint &other);
 
+        bigint &operator++();
+        bigint operator++(int);
 
+        bigint operator<<(size_t shift);
+        bigint &operator<<=(size_t shift); 
+         
+        bigint operator>>(const bigint &other);
+        bigint &operator>>=(const bigint &other); 
+
+        bool operator<(const bigint &other) const;
+        bool operator<=(const bigint &other) const;
+
+        bool operator>(const bigint &other) const;
+        bool operator>=(const bigint &other) const;
+
+        bool operator!=(const bigint &other) const;
+        bool operator==(const bigint &other) const;
 };
+
+std::ostream &operator<<(std::ostream &os,const bigint& other);
 
 #endif
